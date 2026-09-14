@@ -1,3 +1,5 @@
+
+// imgs and their source for js create elements purposes
 const imgs = [
     {img: "andalucia.webp"},
     {img: "ecuador.webp"},
@@ -9,5 +11,13 @@ const imgs = [
     {img: "spain.jpg"}
 ]
 
-const apartments = document.querySelector("apartments");
+const apartments = document.querySelector("#apartments");
 console.log(apartments)
+
+imgs.forEach(function(img){
+    let section = document.createElement("section");
+
+    section.classList.add("apartment");
+
+    apartments.append(section);
+});
