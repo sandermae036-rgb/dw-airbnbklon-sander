@@ -34,6 +34,9 @@ imgsList.forEach(function(imgs){
                 // inside img the source should be equial to the object currently on
                 img.setAttribute("src", "img/" + imgs.imgsrc);
 
+                // make alt alt
+                img.setAttribute("alt", "Apartment");
+
             // append the img inside the div
             div.append(img)
             
