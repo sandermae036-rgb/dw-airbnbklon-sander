@@ -33,7 +33,39 @@ ul {
 
 
 /* actual styling ----------------------------------------------------------------------------------------- */
+/* h1 --------------------------  */
 h1 {
     margin: 0 5vw 0 5vw;
     font-size: 5vw;
+    padding: 2rem 0;
+}
+
+/* section apartment --------------------------- */
+#apartments {
+    margin: 0 5vw 0 5vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1vw;
+}
+
+.apartment {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    background-color: #CEF9FF;
+}
+
+div {
+    grid-column: 1/-1;
+}
+
+img {
+    height: 14.9rem;
+    width: 21rem;
+}
+
+p {
+    text-align: center;
+    grid-column: -2/-1;
+    padding: 1rem 1.5rem;
 }
