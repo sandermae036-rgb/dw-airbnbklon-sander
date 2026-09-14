@@ -40,8 +40,6 @@ imgsList.forEach(function(imgs){
         // append div insid the apartment
         section.append(div);
 
-
-
         // make a paragraph
         let paragraph = document.createElement("p");
 
