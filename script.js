@@ -24,6 +24,7 @@ imgsList.forEach(function(imgs){
     // give the section the class apartment 
     section.classList.add("apartment");
 
+        // imgs ---------------------------------------------------------------
         // inside that section make an div
         let div = document.createElement("div");
 
@@ -38,6 +39,17 @@ imgsList.forEach(function(imgs){
             
         // append div insid the apartment
         section.append(div);
+
+
+
+        // make a paragraph
+        let paragraph = document.createElement("p");
+
+            // text content = more
+            paragraph.textContent = "More" 
+
+        // append the paragraph with the txt 
+        section.append(paragraph);
 
     // append the section inside apartments
     apartments.append(section);
