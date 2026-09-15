@@ -64,6 +64,51 @@ function insetInHTML (data) {
         txtSection.id = "information";
 
 
+        // destination ------------------------------------------------------------------
+        let txtdestination = document.createElement("p");
+
+        txtdestination.textContent = data.destination;
+
+        txtSection.append(txtdestination)
+        
+
+
+
+        // title ------------------------------------------------------------------
+        let txtTitle = document.createElement("h1");
+
+        txtTitle.textContent = data.title;
+
+        txtSection.append(txtTitle)
+
+
+        // subTitle ----------------------------------------------------------------------
+        
+
+
+        // facilities ------------------------------------------------------------------
+        let ul = document.createElement("ul");
+
+        data.facilities.forEach(function (facility) { 
+
+            let li = document.createElement("li");
+
+                let txtFacility = document.createElement("p"); 
+
+                txtFacility.textContent = facility
+
+                li.append(txtFacility);
+
+            li.append(txtFacility)
+
+            ul.append(li); 
+        });
+
+        txtSection.append(ul);
+
+
+
+
 
 
 
