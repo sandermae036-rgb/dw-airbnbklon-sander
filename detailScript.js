@@ -38,7 +38,7 @@ function insetInHTML (data) {
     let wrapper = document.createElement("div");
     wrapper.id = "wrapper";
 
-
+    let main = document.createElement("main");
 
     // section containing the img
         let imgSection = document.createElement("div");
@@ -56,7 +56,7 @@ function insetInHTML (data) {
             imgSection.append(img);
 
 
-        wrapper.append(imgSection);
+        main.append(imgSection);
 
 
         // section containing the txt
@@ -69,6 +69,8 @@ function insetInHTML (data) {
 
         txtdestination.textContent = data.destination;
 
+        txtdestination.id = "information--destination";
+
         txtSection.append(txtdestination)
         
 
@@ -79,6 +81,8 @@ function insetInHTML (data) {
 
         txtTitle.textContent = data.title;
 
+        txtTitle.id = "information--title";
+
         txtSection.append(txtTitle)
 
 
@@ -87,6 +91,8 @@ function insetInHTML (data) {
 
         txtSubtitle.textContent = data.subtitle;
 
+        txtSubtitle.id = "information--subtitle";
+
         txtSection.append(txtSubtitle);
 
 
@@ -94,6 +100,8 @@ function insetInHTML (data) {
         let text = document.createElement("p");
 
         text.textContent = data.text;
+
+        text.id = "information--text";
 
         txtSection.append(text);
 
@@ -120,7 +128,9 @@ function insetInHTML (data) {
 
 
         // wrapper ------------------------------------------------------------------------- 
-        wrapper.append(txtSection);
+        main.append(txtSection);
+
+        wrapper.append(main)
 
     // append wrapper in body of html ----------------- 
     document.querySelector("body").append(wrapper);
