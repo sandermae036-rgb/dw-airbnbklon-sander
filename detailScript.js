@@ -14,7 +14,7 @@ getUrlData(url)
 
 
 async function fetchDatat(idNumber) {
-    console.log(idNumber)
+    console.log(idNumber);
 
     try {
         const detailFromJson = await fetch("data/" + idNumber + ".json");
