@@ -105,7 +105,18 @@ function insetInHTML (data) {
 
         txtSection.append(text);
 
+
+
+
+
         // facilities ------------------------------------------------------------------
+
+        let facilityHeadline = document.createElement("p");
+
+        facilityHeadline.textContent = "Faciliteter";
+
+        txtSection.append(facilityHeadline);
+
         let ul = document.createElement("ul");
 
         data.facilities.forEach(function (facility) { 
