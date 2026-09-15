@@ -83,8 +83,19 @@ function insetInHTML (data) {
 
 
         // subTitle ----------------------------------------------------------------------
-        
+        let txtSubtitle = document.createElement("p")
 
+        txtSubtitle.textContent = data.subtitle;
+
+        txtSection.append(txtSubtitle);
+
+
+        // text ----------------------------------------------------------------------------
+        let text = document.createElement("p");
+
+        text.textContent = data.text;
+
+        txtSection.append(text);
 
         // facilities ------------------------------------------------------------------
         let ul = document.createElement("ul");
@@ -108,12 +119,9 @@ function insetInHTML (data) {
 
 
 
-
-
-
-
+        // wrapper ------------------------------------------------------------------------- 
         wrapper.append(txtSection);
 
-    // append wrapper in js 
+    // append wrapper in body of html ----------------- 
     document.querySelector("body").append(wrapper);
 };
