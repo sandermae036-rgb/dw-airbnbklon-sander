@@ -64,7 +64,7 @@ img {
     width: 21rem;
 }
 
-p {
+a {
     text-align: center;
     grid-column: -2/-1;
     padding: 1rem 1.5rem;
