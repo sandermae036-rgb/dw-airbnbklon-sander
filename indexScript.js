@@ -88,10 +88,3 @@ function placeInHTML(apartmentList) {
     });
 
 }
-
-
-// function showDetail () {
-//     console.log(this.id)
-
-//     window.location = new URL();
-// };
