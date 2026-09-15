@@ -64,7 +64,8 @@ main {
 }
 
 #information--destination,
-#information--subtitle {
+#information--subtitle,
+#information--title {
     text-align: center;
 }
 
