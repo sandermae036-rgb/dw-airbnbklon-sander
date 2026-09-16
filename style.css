@@ -71,6 +71,11 @@ img {
     padding-left: 1rem;
 }
 
+.fa-heart:hover {
+    cursor: pointer;
+}
+
+
 a {
     text-align: center;
     grid-column: -2/-1;

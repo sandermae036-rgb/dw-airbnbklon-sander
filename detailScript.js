@@ -2,9 +2,9 @@ console.log("started")
 
 let url = location.url;
 
-function getUrlData (url) {
+function getUrlData(url) {
 
-    const id = new URLSearchParams (location.search).get("id")
+    const id = new URLSearchParams(location.search).get("id")
     console.log(id)
 
     fetchDatat(id);
@@ -25,7 +25,7 @@ async function fetchDatat(idNumber) {
 
         insetInHTML(apartmentDetail);
     } catch (error) {
-        
+
     }
 }
 
@@ -33,7 +33,7 @@ async function fetchDatat(idNumber) {
 
 
 // inset in html
-function insetInHTML (data) {
+function insetInHTML(data) {
     // create div with id wrapper
     let wrapper = document.createElement("div");
     wrapper.id = "wrapper";
@@ -41,107 +41,119 @@ function insetInHTML (data) {
     let main = document.createElement("main");
 
     // section containing the img
-        let imgSection = document.createElement("div");
-        imgSection.id = "imgDisplay";
+    let imgSection = document.createElement("div");
+    imgSection.id = "imgDisplay";
+
+    // making img -------------------------------------------------------------------------------------
+    let img = document.createElement("img");
+
+    img.setAttribute("src", "img/" + data.image);
+
+    img.setAttribute("alt", data.subtitle);
+
+    console.log(img);
+
+    imgSection.append(img);
 
 
-            let img = document.createElement("img");
+    // make font awsome icon ------------------------------------------------------------------------
+    let fontAwsomeIcon = document.createElement("i");
 
-            img.setAttribute("src", "img/" + data.image);
+    // give them class to make into the icon
+    fontAwsomeIcon.classList.add("fa-regular", "fa-heart");
 
-            img.setAttribute("alt", data.subtitle);
+    fontAwsomeIcon.id = data.id;
 
-            console.log(img);
-
-            imgSection.append(img);
-
-
-        main.append(imgSection);
+    // append in the section 
+    imgSection.append(fontAwsomeIcon);
 
 
-        // section containing the txt
-        let txtSection = document.createElement("section");
-        txtSection.id = "information";
+    main.append(imgSection);
 
 
-        // destination ------------------------------------------------------------------
-        let txtdestination = document.createElement("p");
-
-        txtdestination.textContent = data.destination;
-
-        txtdestination.id = "information--destination";
-
-        txtSection.append(txtdestination)
-        
+    // section containing the txt --------------------------------------------------------------------
+    let txtSection = document.createElement("section");
+    txtSection.id = "information";
 
 
+    // destination ------------------------------------------------------------------
+    let txtdestination = document.createElement("p");
 
-        // title ------------------------------------------------------------------
-        let txtTitle = document.createElement("h1");
+    txtdestination.textContent = data.destination;
 
-        txtTitle.textContent = data.title;
+    txtdestination.id = "information--destination";
 
-        txtTitle.id = "information--title";
-
-        txtSection.append(txtTitle)
-
-
-        // subTitle ----------------------------------------------------------------------
-        let txtSubtitle = document.createElement("p")
-
-        txtSubtitle.textContent = data.subtitle;
-
-        txtSubtitle.id = "information--subtitle";
-
-        txtSection.append(txtSubtitle);
-
-
-        // text ----------------------------------------------------------------------------
-        let text = document.createElement("p");
-
-        text.textContent = data.text;
-
-        text.id = "information--text";
-
-        txtSection.append(text);
+    txtSection.append(txtdestination)
 
 
 
 
+    // title ------------------------------------------------------------------
+    let txtTitle = document.createElement("h1");
 
-        // facilities ------------------------------------------------------------------
+    txtTitle.textContent = data.title;
 
-        let facilityHeadline = document.createElement("p");
+    txtTitle.id = "information--title";
 
-        facilityHeadline.textContent = "Faciliteter";
-
-        txtSection.append(facilityHeadline);
-
-        let ul = document.createElement("ul");
-
-        data.facilities.forEach(function (facility) { 
-
-            let li = document.createElement("li");
-
-                let txtFacility = document.createElement("p"); 
-
-                txtFacility.textContent = facility
-
-                li.append(txtFacility);
-
-            li.append(txtFacility)
-
-            ul.append(li); 
-        });
-
-        txtSection.append(ul);
+    txtSection.append(txtTitle)
 
 
+    // subTitle ----------------------------------------------------------------------
+    let txtSubtitle = document.createElement("p")
 
-        // wrapper ------------------------------------------------------------------------- 
-        main.append(txtSection);
+    txtSubtitle.textContent = data.subtitle;
 
-        wrapper.append(main)
+    txtSubtitle.id = "information--subtitle";
+
+    txtSection.append(txtSubtitle);
+
+
+    // text ----------------------------------------------------------------------------
+    let text = document.createElement("p");
+
+    text.textContent = data.text;
+
+    text.id = "information--text";
+
+    txtSection.append(text);
+
+
+
+
+
+    // facilities ------------------------------------------------------------------
+
+    let facilityHeadline = document.createElement("p");
+
+    facilityHeadline.textContent = "Faciliteter";
+
+    txtSection.append(facilityHeadline);
+
+    let ul = document.createElement("ul");
+
+    data.facilities.forEach(function (facility) {
+
+        let li = document.createElement("li");
+
+        let txtFacility = document.createElement("p");
+
+        txtFacility.textContent = facility
+
+        li.append(txtFacility);
+
+        li.append(txtFacility)
+
+        ul.append(li);
+    });
+
+    txtSection.append(ul);
+
+
+
+    // wrapper ------------------------------------------------------------------------- 
+    main.append(txtSection);
+
+    wrapper.append(main)
 
     // append wrapper in body of html ----------------- 
     document.querySelector("body").append(wrapper);

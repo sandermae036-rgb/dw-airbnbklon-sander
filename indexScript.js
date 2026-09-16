@@ -6,10 +6,8 @@ async function fetchDestination(url, newTry) {
 
     try {
         const firstResponse = await fetch(url);
-        console.log(firstResponse);
 
         const data = await firstResponse.json();
-        console.log(data);
 
         placeInHTML(data.destinations)
 
@@ -29,7 +27,6 @@ fetchDestination(url)
 // get the apartments section
 
 const apartments = document.querySelector("#apartments");
-console.log(apartments);
 
 
 function placeInHTML(apartmentList) {
@@ -37,7 +34,6 @@ function placeInHTML(apartmentList) {
     apartmentList.forEach(function (apartment) {
         // make section
         let section = document.createElement("section");
-        console.log(section);
 
         // give the section the class apartment 
         section.classList.add("apartment");
@@ -48,7 +44,6 @@ function placeInHTML(apartmentList) {
         // imgs ---------------------------------------------------------------
         // inside that section make an div
         let div = document.createElement("div");
-        console.log(div);
 
         // inside the div make an img with src equial to the object
         let img = document.createElement("img");
@@ -70,8 +65,12 @@ function placeInHTML(apartmentList) {
         // make font awsome icon 
         let fontAwsomeIcon = document.createElement("i");
 
+        // give them class to make into the icon
         fontAwsomeIcon.classList.add("fa-regular", "fa-heart");
 
+        fontAwsomeIcon.id = apartment.id;
+
+        // append in the section 
         section.append(fontAwsomeIcon);
 
 
@@ -96,4 +95,33 @@ function placeInHTML(apartmentList) {
 
     });
 
+    favorit();
+}
+
+function favorit() {
+    const allIcons = document.querySelectorAll(".fa-heart")
+    console.log(allIcons);
+
+    allIcons.forEach(function (icon) {
+
+        icon.addEventListener("click", addToFavorits);
+        
+        function addToFavorits () {
+            if (this.classList.contains("fa-regular")) {
+                // visually change the favorite button to match if it is pressed or not
+                this.classList.remove("fa-regular")
+
+                this.classList.add("fa-solid")
+
+                localStorage.setItem("is apartment number " + this.id + " favorited?", true)
+
+            } else if (this.classList.contains("fa-solid")) {
+                this.classList.remove("fa-solid");
+
+                this.classList.add("fa-regular");
+
+                localStorage.setItem("is apartment number " + this.id + " favorited?", false)
+            }
+        }
+    });
 }
