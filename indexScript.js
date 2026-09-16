@@ -62,12 +62,14 @@ function placeInHTML(apartmentList) {
 
 
         // the utility  -------------------------------------------------
+
+        // font awsome ----------------------------------- 
         // make font awsome icon 
         let fontAwsomeIcon = document.createElement("i");
 
         // give them class to make into the icon
         fontAwsomeIcon.classList.add("fa-regular", "fa-heart");
-
+    
         fontAwsomeIcon.id = apartment.id;
 
         // append in the section 
@@ -95,12 +97,17 @@ function placeInHTML(apartmentList) {
 
     });
 
+
+    // favorite function --------------------------------------------------------------------------------------
     favorit();
 }
 
+
+
+
+
 function favorit() {
     const allIcons = document.querySelectorAll(".fa-heart")
-    console.log(allIcons);
 
     allIcons.forEach(function (icon) {
 
@@ -122,6 +129,27 @@ function favorit() {
 
                 localStorage.setItem("is apartment number " + this.id + " favorited?", false)
             }
+        }
+    });
+
+    console.log("helll")
+
+    allIcons.forEach(function (icon) {
+        console.log(localStorage.getItem("is apartment number " + icon.id + " favorited?") == "true")
+
+        if (localStorage.getItem("is apartment number " + icon.id + " favorited?") == "true") {
+            icon.classList.remove("fa-regular")
+
+            icon.classList.add("fa-solid");
+            
+
+            return
+        } else {
+            icon.classList.remove("fa-solid")
+
+            icon.classList.add("fa-regular");
+
+            return
         }
     });
 }

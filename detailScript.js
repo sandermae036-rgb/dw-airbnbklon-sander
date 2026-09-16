@@ -55,6 +55,9 @@ function insetInHTML(data) {
 
     imgSection.append(img);
 
+    // section containing the txt --------------------------------------------------------------------
+    let txtSection = document.createElement("section");
+    txtSection.id = "information";
 
     // make font awsome icon ------------------------------------------------------------------------
     let fontAwsomeIcon = document.createElement("i");
@@ -69,12 +72,6 @@ function insetInHTML(data) {
 
 
     main.append(imgSection);
-
-
-    // section containing the txt --------------------------------------------------------------------
-    let txtSection = document.createElement("section");
-    txtSection.id = "information";
-
 
     // destination ------------------------------------------------------------------
     let txtdestination = document.createElement("p");
@@ -157,4 +154,44 @@ function insetInHTML(data) {
 
     // append wrapper in body of html ----------------- 
     document.querySelector("body").append(wrapper);
+
+
+
+
+    // favorite function -----------------------------------------------------------------------------------
+    favorite(data);
 };
+
+
+
+
+
+
+// favorite true or false function --------------------------------------------------------------
+function favorite(data) {
+
+    // local storage name
+    let localName = "is apartment number " + data.id + " favorited?"
+    console.log(localName)
+
+    const heart = document.querySelector(".fa-heart")
+    console.log(heart);
+
+    console.log(localStorage.getItem(localName));
+
+    if (localStorage.getItem(localName) == "true") {
+        console.log("this is favorited")
+
+        heart.classList.remove("fa-regular");
+
+        heart.classList.add("fa-solid");
+
+    } else {
+        console.log("this isnt favoerited")
+
+        heart.classList.remove("fa-solid");
+
+        heart.classList.add("fa-regular");
+
+    }
+}
