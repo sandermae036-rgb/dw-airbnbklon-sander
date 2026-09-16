@@ -66,7 +66,15 @@ function placeInHTML(apartmentList) {
         section.append(div);
 
 
-        // anchor -------------------------------------------------
+        // the utility  -------------------------------------------------
+        // make font awsome icon 
+        let fontAwsomeIcon = document.createElement("i");
+
+        fontAwsomeIcon.classList.add("fa-regular", "fa-heart");
+
+        section.append(fontAwsomeIcon);
+
+
         // make a anchor tag
         let anchor = document.createElement("a");
 
@@ -78,6 +86,7 @@ function placeInHTML(apartmentList) {
 
         // make it target blank because its better
         anchor.setAttribute("target", "_blank");
+
         // append the paragraph with the txt 
         section.append(anchor);
 

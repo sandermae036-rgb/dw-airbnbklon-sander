@@ -57,6 +57,13 @@ main {
 }
 
 /* information --------------------------------------------------- */
+.fa-heart {
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+    text-align: center;
+}
+
 #information {
     flex: 6;
 

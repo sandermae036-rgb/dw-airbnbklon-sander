@@ -64,6 +64,13 @@ img {
     width: 21rem;
 }
 
+.fa-heart {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    padding-left: 1rem;
+}
+
 a {
     text-align: center;
     grid-column: -2/-1;
